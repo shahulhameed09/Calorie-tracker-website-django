@@ -1,0 +1,71 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+    <div class="row container">
+        <div class="col-md-9 form">
+            <form method="POST" class="form-control cc">
+                <h2 style="text-align:center">Add Food Item</h2>
+                {% csrf_token %}
+                {{food.name}}
+                {{food.carbs}}
+                {{food.protein}}
+                {{food.fats}}
+                {{food.calories}}
+                <input type="submit" class="btn btn-dark">
+            </form>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<script>
+    var input = document.getElementsByTagName('input');
+
+    input[1].placeholder="Enter Food Name"
+    input[2].placeholder="Enter Carbs"
+    input[3].placeholder="Enter Protein"
+    input[4].placeholder="Enter Fats"
+    input[5].placeholder="Enter Calories"
+</script>
+
+<style>
+    body{
+        background: #fae6f5;
+    }
+    .form{
+        margin-left: auto;
+        margin-top: 4rem;
+    }
+    .cc{
+        background: #bebec9;
+        padding: 2rem;
+        border-radius: 19px;
+    }
+    .cc input,
+    .cc p{
+        border: none;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .cc h2{
+        margin-bottom: 2rem;
+    }
+    .cc input::after{
+        border: none !important;
+    }
+    .btn{
+        margin-top: 0.5rem;
+    }
+    input{
+        border: none;
+        margin-bottom: 12px;
+        padding: 4px 4px 4px 8px;
+    }
+    input:focus{
+        outline:none!important;
+    }
+
+</style>
+
+{% endblock content %}

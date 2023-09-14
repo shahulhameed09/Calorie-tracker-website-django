@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+        
+<div class="container form">
+    {% for i in kcal %} 
+       <p> {{i.Calories}} (Calories) </p>
+        Want to Update Calories? Click <a href="/update_kcal/{{i.id}}">Here!</a>
+    {% endfor %}
+</div>
+
+<style>
+    .form{
+        margin: auto !important;
+        background: #c1b3b3;
+        width: 30%;
+        padding: 1rem;
+        border-radius: 9px;
+        margin-top: 8rem !important;
+        text-align: center;
+    }
+    p{
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 7px;
+        border: none;
+        padding: 8px;
+        font-size: 19px;
+        background: #ffffff;
+    }
+    body{
+        background: #ece8e8;
+    }
+</style>
+
+    <script>
+        var ins = document.getElementsByTagName('input');
+        ins[1].placeholder="Set Calorie Goal"
+    </script>
+{% endblock content %}

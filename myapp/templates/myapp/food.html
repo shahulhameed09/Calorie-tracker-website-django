@@ -1,0 +1,78 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+    <h2 style="text-align:center">Food Details</h2>
+    <div class=" d-flex flex-wrap item">
+        {% for i in food %}
+        {% if user.username == i.user.username %}
+        <div class="items">
+            <table>
+                <tr>
+                    <td>Name</td><td>:</td><td> {{i.name}}</td>
+                </tr>
+                <tr>
+                    <td>Carbs</td><td>:</td><td> {{i.carbs}}gm</td>
+                </tr>
+                <tr>
+                    <td>Protein</td><td>:</td><td> {{i.protein}}gm</td>
+                </tr>
+                <tr>
+                    <td>Fats</td><td>:</td><td> {{i.fats}}gm</td>
+                </tr>
+                <tr>
+                    <td>Calories</td><td>:</td><td> {{i.calories}}Kcal</td>
+                </tr>
+                
+            </table>
+            <a href="/edit_food/{{i.id}}"> <input type="submit" class="btn btn-sm btn-primary" value="Update"></a>
+            <a href="/delete_food/{{i.id}}"> <input type="submit" class="btn btn-sm btn-danger" value="Delete"></a>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    </div>
+
+</body>
+
+<script>
+    var input = document.getElementsByTagName('input');
+
+    input[2].placeholder = "Enter Food Name"
+    input[3].placeholder = "Enter Carbs"
+    input[4].placeholder = "Enter Protein"
+    input[5].placeholder = "Enter Fats"
+    input[6].placeholder = "Enter Calories"
+</script>
+
+<style>
+    body {
+        background: #fae6f5;
+    }
+
+    .btn {
+        border-radius: 9px;
+        font-size: 10px;
+    }
+
+    .item{
+        gap: 1rem;
+        margin-top: 2.7rem;
+        margin-left: 3rem;
+    }
+
+    .items{
+        background: #bebec9;
+        padding: 2rem;
+        padding-bottom: 1.4rem;
+        padding-right: 1.4rem;
+        width: 23%;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+    table{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+</style>
+
+{% endblock content %}
